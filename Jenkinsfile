@@ -11,9 +11,5 @@ node {
        sh 'npm test'
      }
    }
-   stage('docker build/push') {
-     docker.withRegistry('https://index.docker.io/v2/', 'dockerhub') {
-       def app = docker.build("oomaer/simplenodeapp:${commit_id}", '.').push()
-     }
-   }
+   
 }

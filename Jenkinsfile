@@ -11,5 +11,11 @@ node {
        sh 'npm test'
      }
    }
+    stage('build') {
+      nodejs(nodeJSInstallationName: 'nodejs') {
+         sh 'npm install'
+         sh 'npm run build'
+      }
+    }
    
 }

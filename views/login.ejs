@@ -1,0 +1,51 @@
+
+
+
+
+<h1>Sign in</h1>
+<div>
+    <div style="margin-bottom: 10px;">
+        <label>Email</label>
+        <input type="email" name="email" required>
+    </div>
+    <div style="margin-bottom: 10px;">
+        <label>Password</label>
+        <input type="password" name="password" required>
+    </div>
+    <button onclick="login()" style="background-color: black; color: white; margin: 20px; width: 100px; padding: 5px 10px;">Login</button>
+    <p id = "loginMessage"></p>
+</div>
+
+<div>
+    <a href="/register">or Register for a new account</a>
+</div>
+
+
+<script>
+    const login = () =>{
+
+        fetch('/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: document.querySelector('input[name="email"]').value,
+                password: document.querySelector('input[name="password"]').value
+            })
+        })
+        .then(res => {
+            if(res.status == 200){
+                sessionStorage.setItem("simpleAppLoggedIn", "true");
+                window.location.href = "/";
+            }
+            else{
+                document.querySelector('#loginMessage').innerHTML = "Invalid email or password";
+            }
+        })
+        .catch(err => {
+            document.querySelector('#loginMessage').innerHTML = "server error";
+            console.log(err);
+        })
+    }
+</script>

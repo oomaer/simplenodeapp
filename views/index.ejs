@@ -1,0 +1,19 @@
+
+<div style="display:flex; flex-direction:column; justify-content:center; align-items:center;">
+    <h1 style="text-align: center;" id = "maincontent">please wait :))</h1>
+    <button id = "logoutbutton" onclick="logoutClick()" style="display: none; background-color: black; color: white; width: 100px; padding: 5px 10px;">Logout</button>
+</div>
+<script>
+    if(sessionStorage.getItem("simpleAppLoggedIn") == "true"){
+        document.querySelector('#maincontent').innerHTML = "WELCOME TO HOMEPAGE";
+        document.querySelector('#logoutbutton').style.display = "block";
+    }
+    else{
+        window.location.href = "/login";
+    }
+
+    const logoutClick = () =>{
+        sessionStorage.removeItem("simpleAppLoggedIn");
+        window.location.href = "/login";
+    }
+</script>

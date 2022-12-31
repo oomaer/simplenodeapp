@@ -1,0 +1,49 @@
+
+
+
+<h1>Sign Up</h1>
+<div>
+    <div style="margin-bottom: 10px;">
+        <label>Name</label>
+        <input type="text" name="name" required>
+    </div>
+    <div style="margin-bottom: 10px;">
+        <label>Email</label>
+        <input type="email" name="email" required>
+    </div>
+    <div style="margin-bottom: 10px;">
+        <label>Password</label>
+        <input type="password" name="password" required>
+    </div>
+
+    <button onclick="register()" style="background-color: black; color: white; margin: 20px; width: 100px; padding: 5px 10px;">Register</button>
+    <p id = "registerMessage"></p>
+</div>
+
+
+<div>
+    <a href="/login">or Login to existing account</a>
+</div>
+
+<script>
+    const register = () =>{
+        fetch('/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: document.querySelector('input[name="name"]').value,
+                email: document.querySelector('input[name="email"]').value,
+                password: document.querySelector('input[name="password"]').value
+            })
+        })
+        .then(res => res.json().then(data => {
+                document.querySelector('#registerMessage').innerHTML = data.message;
+        }))
+        .catch(err => {
+            document.querySelector('#registerMessage').innerHTML = "server error";
+            console.log(err);
+        })
+    }
+</script>

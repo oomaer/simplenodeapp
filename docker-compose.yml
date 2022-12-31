@@ -1,0 +1,5 @@
+services:
+  nodejs:
+    image: oomaer22/simplenodeapp:1.0.0
+    ports: 
+      - "5051:5051"

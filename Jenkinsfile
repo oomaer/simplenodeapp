@@ -1,4 +1,8 @@
-node {
+pipeline {
+   agent any
+   options {
+    skipStagesAfterUnstable()
+   }
    def commit_id
    stage('Preparation') {
      checkout scm

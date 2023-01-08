@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "test": "python test/test.py",
+    "test": "python test/test.py -v",
     "build": "echo 'build successful'"
   },
   "devDependencies": {

@@ -11,9 +11,9 @@
     "build": "echo 'build successful'"
   },
   "devDependencies": {
-    "selenium-webdriver": "^4.7.1",
     "inherits": "^2.0.4",
     "mocha": "^5.2.0",
-    "ms": "^2.1.1"
+    "ms": "^2.1.1",
+    "selenium-webdriver": "^4.7.1"
   }
 }

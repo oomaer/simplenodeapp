@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "test": "npm install inherits && mocha --timeout 10000",
+    "test": "npm install inherits && npm install selenium-webdriver && mocha --timeout 10000",
     "build": "echo 'build successful'"
   },
   "devDependencies": {

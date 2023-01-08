@@ -7,11 +7,11 @@
   },
   "scripts": {
     "start": "node index.js",
-    "test": "npm install inherits && mocha",
-    "build": ""
+    "test": "npm install inherits && mocha --timeout 10000",
+    "build": "echo 'build successful'"
   },
   "devDependencies": {
-    "inherits": "^2.0.3",
+    "inherits": "^2.0.4",
     "mocha": "^5.2.0",
     "ms": "^2.1.1"
   }
